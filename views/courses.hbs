@@ -1,4 +1,4 @@
-<h1>Курсы</h1>
+<h1>Перевозки</h1>
 
 {{#if courses.length}}
 {{#each courses}}
@@ -13,14 +13,17 @@
         <p class="price">{{price}}</p>
       </div>
       <div class="card-action actions">
-        <a href="/courses/{{id}}" target="_blank">Открыть курс</a>
+        <a href="/courses/{{id}}" target="_blank">Открыть</a>
         {{#if @root.isAuth}}
-          <a href="/courses/{{id}}/edit?allow=true">Редактировать</a>
-          <form action="/card/add" method="POST">
-            <input type="hidden" name="_csrf" value="{{@root.csrf}}">
-            <input type="hidden" name="id" value="{{id}}">
-            <button type="submit" class="btn btn-primary">Купить</button> 
-          </form>
+          {{#if @root.isAdministrator}}
+            <a href="/courses/{{id}}/edit?allow=true">Редактировать</a>
+          {{/if}}
+            <form action="/card/add" method="POST">
+              <input type="hidden" name="_csrf" value="{{@root.csrf}}">
+              <input type="hidden" name="id" value="{{id}}">
+              <button type="submit" class="btn btn-primary">Активировать</button> 
+            </form>
+         
         {{/if}}
       </div>
     </div>

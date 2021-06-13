@@ -1,6 +1,30 @@
 .nav-wrapper {
   padding: 0 2rem;
 }
+.nav-vtormetprom{
+  background-color: #2d2d44;
+}
+
+.brand-logo{
+  background: url(../img/full-logo.png);
+}
+
+.tabs .tab a:hover, .tabs .tab a.active {
+  background-color: white;
+  color: #2d2d44;
+}
+
+
+.tabs .tab a:focus, .tabs .tab a:focus.active{
+  background-color: lightgrey;
+}
+.tabs .tab a {
+  color: #2d2d44;
+}
+
+.tabs .indicator {
+  background-color: #2d2d44;
+}
 
 .price {
   font-size: 2rem;
@@ -47,4 +71,73 @@
   margin-bottom: 1rem;
   background: rgba(255, 0, 0, .3);
   color: red;
+}
+
+nav ul ul {
+  display: none;
+  position: absolute;
+  top: 100%;
+}
+
+nav ul li{
+  background-color: #2d2d44;
+}
+/* отображаем выпадающий список при наведении */
+nav ul li:hover > ul {
+  display:inherit;
+}
+
+/* первый уровень выпадающего списка */
+nav ul ul li {
+  min-width:170px;
+  float:none;
+  display:list-item;
+  position: relative;
+}
+
+.dropdown__href{
+  background-color: #2d2d44;
+}
+.dropdown-button{
+  display: none;
+}
+ul:not(.browser-default){
+  margin-right: 130px;
+}
+
+.btn:hover,
+.btn:active {
+  background-color: #2e1827!important;
+}
+
+
+.btn, .btn-large, .btn-small {
+  background-color: #2d2d44;
+}
+
+.btn, .btn-large, .btn-small:hover {
+  background-color: black;
+}
+
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating),
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating):hover {
+  color: black;
+}
+
+@media only screen and (max-width: 992px) {
+  nav .brand-logo {
+    left: 20%;
+  }
+
+  .hide-on-med-and-down{
+    display: block !important;
+  }
+
+  .hide-on-med-and-down > .dropdown-button{
+    display: block;
+  } 
+
+  .hide-on-med-and-down > li:not(.dropdown-button){
+    display: none !important;
+  } 
 }

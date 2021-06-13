@@ -20,15 +20,19 @@ router.get('/logout', async (req, res) => {
 
 router.post('/login', async (req, res) => {
   try {
-    const {email, password} = req.body
+    const {email, password, isAdmin} = req.body
     const candidate = await User.findOne({ email })
-
+    
     if (candidate) {
       const areSame = await bcrypt.compare(password, candidate.password)
 
       if (areSame) {
+
+        
+
         req.session.user = candidate
         req.session.isAuthenticated = true
+        req.session.user.isAdmin
         req.session.save(err => {
           if (err) {
             throw err
@@ -39,6 +43,7 @@ router.post('/login', async (req, res) => {
         req.flash('loginError', 'Неверный пароль')
         res.redirect('/auth/login#login')
       }
+
     } else {
       req.flash('loginError', 'Такого пользователя не существует')
       res.redirect('/auth/login#login')
@@ -52,6 +57,8 @@ router.post('/register', async (req, res) => {
   try {
     const {email, password, repeat, name} = req.body
     const candidate = await User.findOne({ email })
+
+    console.log(req.body)
 
     if (candidate) {
       req.flash('registerError', 'Пользователь с таким email уже существует')

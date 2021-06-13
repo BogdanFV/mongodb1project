@@ -53,7 +53,7 @@ if ($card) {
             $card.querySelector('tbody').innerHTML = html
             $card.querySelector('.price').textContent = toCurrency(card.price)
           } else {
-            $card.innerHTML = '<p>Корзина пуста</p>'
+            $card.innerHTML = '<p>Заказов в данный момент нет</p>'
           }
         })
     }
@@ -61,4 +61,6 @@ if ($card) {
   })
 } 
 
+
+ 
 M.Tabs.init(document.querySelectorAll('.tabs'))

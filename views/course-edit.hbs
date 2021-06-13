@@ -1,3 +1,5 @@
+{{#if isAdministrator}}
+
 <h1>Редактировать {{course.title}}</h1>
 
 <form action="/courses/edit" method="POST" class="course-form">
@@ -30,3 +32,7 @@
   <input type="hidden" name="id" value="{{ course.id }}">
   <button class="btn red">Удалить курс</button>
 </form>
+
+{{else}}
+  <h1>Нет доступа, войдите от имени администратора</h1>
+{{/if}}

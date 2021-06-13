@@ -1,37 +1,99 @@
 <nav>
-  <div class="nav-wrapper">
-    <a href="/" class="brand-logo">Магазин курсов</a>
+  <li class="nav-wrapper nav-vtormetprom">
+    <div class="brand-logo">
+      <a href="/">Вторметпром</a>
+      <i class='material-icons' href="/">rv_hookup</i>
+    </div>
     <ul id="nav-mobile" class="right hide-on-med-and-down">
 
+      <li class="dropdown-button">
+        <i class='material-icons' href='#' data-target=''>arrow_drop_down</i>
+        
+        
+        <ul id='' class=''>
+
+          {{#if isCourses}}
+            <li class="active"><a href="/courses">Перевозки</a></li>
+          {{else}}
+            <li><a href="/courses">Перевозки</a></li>
+          {{/if}}
+
+          
+
+          {{#if isAuth}}
+          
+            
+
+            {{#if isCard}}
+              <li class="active"><a href="/card">Выбранные</a></li>
+            {{else}}
+              <li><a href="/card">Выбранные</a></li>
+            {{/if}} 
+
+            {{#if isOrder}}
+              <li class="active"><a href="/orders">Активные</a></li>
+            {{else}}
+              <li><a href="/orders">Активные</a></li>
+            {{/if}} 
+            <li><a href="/auth/logout">Выйти</a></li>
+
+            {{#if isAdministrator}}
+
+              {{#if isAdd}}
+                <li class="active"><a href="/add">Добавить новую</a></li>
+              {{else}}
+                <li><a href="/add">Добавить новую</a></li>
+              {{/if}}
+
+            {{/if}} 
+
+          {{else}}
+
+            {{#if isLogin}}
+              <li class="active"><a href="/auth/login#login">Войти</a></li>
+            {{else}}
+              <li><a href="/auth/login#login">Войти</a></li>
+            {{/if}}
+
+          {{/if}}
+        </ul>
+      </li>
+
+    
       {{#if isHome}}
         <li class="active"><a href="/">Главная</a></li>
       {{else}}
         <li><a href="/">Главная</a></li>
       {{/if}}
+    
 
       {{#if isCourses}}
-        <li class="active"><a href="/courses">Курсы</a></li>
+        <li class="active"><a href="/courses">Перевозки</a></li>
       {{else}}
-        <li><a href="/courses">Курсы</a></li>
+        <li><a href="/courses">Перевозки</a></li>
       {{/if}}
+    
+      
 
       {{#if isAuth}}
-        {{#if isAdd}}
-          <li class="active"><a href="/add">Добавить курс</a></li>
-        {{else}}
-          <li><a href="/add">Добавить курс</a></li>
+        {{#if isAdministrator}}
+          {{#if isAdd}}
+            <li class="active"><a href="/add">Добавить новую</a></li>
+          {{else}}
+            <li><a href="/add">Добавить новую</a></li>
+          {{/if}} 
         {{/if}} 
 
         {{#if isCard}}
-          <li class="active"><a href="/card">Корзина</a></li>
+          <li class="active"><a href="/card">Выбранные</a></li>
         {{else}}
-          <li><a href="/card">Корзина</a></li>
+          <li><a href="/card">Выбранные</a></li>
         {{/if}} 
 
         {{#if isOrder}}
-          <li class="active"><a href="/orders">Заказы</a></li>
+          <li class="active"><a href="/orders">Активные</a></li>
         {{else}}
-          <li><a href="/orders">Заказы</a></li>
+          <li><a href="/orders">Активные</a></li>
         {{/if}} 
 
         <li><a href="/auth/logout">Выйти</a></li>

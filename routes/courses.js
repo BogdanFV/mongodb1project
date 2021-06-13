@@ -9,7 +9,7 @@ router.get('/', async (req, res) => {
     .select('price title img')
 
   res.render('courses', {
-    title: 'Курсы',
+    title: 'Перевозки',
     isCourses: true,
     courses
   })
